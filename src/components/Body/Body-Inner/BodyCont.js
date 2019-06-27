@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import BodyInfo from './BodyInfo';
 import BodyCaptured from './BodyCaptured';
+import BodyPic from './BodyPic';
 
 export default class BodyCont extends Component {
     constructor() {
@@ -10,8 +10,11 @@ export default class BodyCont extends Component {
     render() {
         return (
             <div className="body-cont">
-                <BodyInfo />
-                <BodyCaptured />
+                <BodyPic
+                    captureThePoke={this.props.captureThePoke}
+                    currPoke={this.props.currPoke} 
+                />
+                <BodyCaptured capturedPoke={this.props.capturedPoke} />
             </div>
         )
     }

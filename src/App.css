@@ -1,4 +1,5 @@
 body {
+  letter-spacing: 2px;
   padding-bottom: 30px;
   background-image: url('images/background1.gif');
   background-size: cover;
@@ -37,20 +38,16 @@ body {
 .app-body-container {
   padding-top: 10px;
   display: grid;
-  grid-template-rows: 20% 60%;
-  grid-gap: 20px;
+  grid-template-rows: 10% 75%;
+  grid-gap: 10px;
   position: relative;
   width: 900px;
   height: 100vh;
 }
 
 .header-body {
-  display: grid;
-  grid-template-rows: 45% 1fr;
-  grid-gap: 10px;
   position: relative;
-  height: auto;
-  min-height: 200px;
+  height: 100px;
 }
 
 .header-control {
@@ -100,11 +97,6 @@ body {
   height: 40px;
 }
 
-.header-report {
-  border: 3px solid white;
-  background-color: rgba(0,0,0,0.3);
-}
-
 .body-cont {
   display: grid;
   grid-template-columns: 70% 1fr;
@@ -116,7 +108,8 @@ body {
 
 .body-info {
   display: grid;
-  grid-template-rows: 70% 1fr;
+  grid-gap: 10px;
+  grid-template-rows: 65% 1fr;
 }
 
 .body-captured {
@@ -127,4 +120,63 @@ body {
 .body-pic {
   border: 3px solid white;
   background-color: rgba(0,0,0,0.3);
+}
+
+.body-pic img {
+  height: 300px;
+  width: auto;
+}
+
+.body-pic h1 {
+  color: #ffffff;
+}
+
+.body-pic button {
+  font-size: 18px;
+  width: 60%;
+  height: 40px;
+}
+
+.body-stat {
+  border: 3px solid white;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.headeroo {
+  text-align: left;
+  height: auto;
+  min-height: 10px;
+  padding: 1px;
+}
+
+.headeroo p {
+  color: #ffffff;
+  padding-left: 10px;
+}
+
+.bodyroo {
+  text-align: left;
+  height: auto;
+  min-height: 10px;
+  padding: 1px;
+}
+
+.bodyroo p {
+  color: #ffffff;
+  padding-left: 10px;
+  height: 10px;
+}
+
+.captured-poke {
+  color: #ffffff;
+  height: auto;
+  min-height: 80px;
+}
+
+.captured-poke img {
+  width: auto;
+  height: 50px;
+}
+
+.captured-poke p {
 }

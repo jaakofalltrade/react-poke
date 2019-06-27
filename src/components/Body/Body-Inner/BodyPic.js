@@ -1,11 +1,49 @@
-import React from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
 
-export default function BodyPic(props) {
-    const { currPoke } = props;
-    return (
-        <div className="body-pic">
-            
-        </div>
-    )
+
+import  GetPic, { GetStat } from './GetPic';
+
+
+export default class BodyPic extends Component {
+    constructor() {
+        super();
+    }
+
+    render() {
+        console.log(this.props.currPoke)
+        if(Object.keys(this.props.currPoke).length != 0) {
+            return (
+                <div className="body-info">
+                    <div className="body-pic">
+                        <GetPic captureThePoke={this.props.captureThePoke} currPoke={this.props.currPoke} />
+                    </div>
+                    <div className="body-stat">
+                        <div className="headeroo">
+                            <p>Vital Statistics: </p>
+                        </div>
+                        <div className="bodyroo">
+                            <GetStat currPoke={this.props.currPoke} />
+                        </div>
+                    </div>
+                </div>
+            ) 
+        } else {
+            return (
+                <div className="body-info">
+                    <div className="body-pic">
+                        
+                    </div>
+                    <div className="body-stat">
+                        <div className="headeroo">
+                            <p>Vital Statistics: </p>
+                        </div>
+                        <div className="bodyroo">
+
+                        </div>
+                    </div>
+                </div>
+            )   
+        }
+    }
+    
 }

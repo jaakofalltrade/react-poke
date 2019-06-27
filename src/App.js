@@ -13,6 +13,7 @@ export default class App extends Component {
       locations: [],
       areas: [],
       currPoke: [],
+      capturedPoke: [],
       currRegion: "",
       currLocation: "",
       currArea: "",
@@ -92,17 +93,43 @@ export default class App extends Component {
     });
   }
 
-  clickExplore = () => {
-    axios.get(this.state.currArea)
-    .then(res => {
-      return res.data.pokemon_encounters;
-    })
-    .then(e => {
-      console.log(e);
-      this.setState({
-        currPoke: e[Math.floor(Math.random() * e.length)].pokemon,
+  captureThePoke = () => {
+    if(this.state.capturedPoke.length != 6) {
+      axios.get(this.state.currPoke.url)
+      .then(x => {
+        return x.data
       })
-    });
+      .then(res => {
+        console.log(res.sprites.front_default);
+        this.setState({
+          capturedPoke: [...this.state.capturedPoke,
+            {
+              name: this.state.currPoke.name,
+              url: res.sprites.front_default
+            }],
+          currPoke: [],
+        })
+      })
+      
+    } else {
+      alert("You're out of pokeball mate!");
+    }
+  }
+
+  clickExplore = () => {
+    if(this.state.currArea != "") {
+      axios.get(this.state.currArea)
+      .then(res => {
+        return res.data.pokemon_encounters;
+      })
+      .then(e => {
+        this.setState({
+          currPoke: e[Math.floor(Math.random() * e.length)].pokemon,
+        })
+      });
+    } else {
+      alert("Empty Area bruv!");
+    }
   }
 
   
@@ -118,10 +145,12 @@ export default class App extends Component {
               changedTheArea={this.changedTheArea}
               changedTheLocation={this.changedTheLocation}
               changedTheRegion={this.changedTheRegion}
+              captureThePoke={this.captureThePoke}
               regions={this.state.regions}
               locations={this.state.locations}
               areas={this.state.areas}
               currPoke={this.state.currPoke}
+              capturedPoke={this.state.capturedPoke}
             />
           </div>
         </div>

@@ -21,7 +21,9 @@ export default class BodyAll extends Component {
                     areas={this.props.areas}
                 />
                 <BodyCont
+                    captureThePoke={this.props.captureThePoke}
                     currPoke={this.props.currPoke}
+                    capturedPoke={this.props.capturedPoke}
                 />
             </React.Fragment>
         )

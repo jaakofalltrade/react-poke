@@ -19,7 +19,6 @@ export default class BodyHeader extends Component {
                     locations={this.props.locations}
                     areas={this.props.areas}
                 />
-                <HeaderReport />
             </div>
         );
     }
